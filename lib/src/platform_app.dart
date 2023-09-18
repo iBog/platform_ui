@@ -424,7 +424,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
       actions: actions,
       restorationScopeId: restorationScopeId,
       scrollBehavior: scrollBehavior ?? const FluentScrollBehavior(),
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 

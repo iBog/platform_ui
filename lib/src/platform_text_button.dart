@@ -188,7 +188,7 @@ class PlatformTextButton extends StatelessWidget with PlatformMixin<Widget> {
       child: MouseRegion(
         cursor: mouseCursor,
         onHover: onHover,
-        child: FluentUI.TextButton(
+        child: FluentUI.Button(
           onPressed: onPressed,
           onLongPress: onLongPress,
           autofocus: autofocus,

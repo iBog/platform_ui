@@ -129,9 +129,9 @@ class PlatformSwitch extends StatelessWidget with PlatformMixin<Widget> {
                       .copyWith(color: activeTrackColor);
                 })
               : null,
-          checkedThumbDecoration: activeThumbColor != null
+          checkedKnobDecoration: activeThumbColor != null
               ? ButtonState.resolveWith((states) {
-                  return (toggleTheme.checkedThumbDecoration?.resolve(states)
+                  return (toggleTheme.checkedKnobDecoration?.resolve(states)
                           as BoxDecoration)
                       .copyWith(color: activeThumbColor);
                 })
@@ -143,9 +143,9 @@ class PlatformSwitch extends StatelessWidget with PlatformMixin<Widget> {
                       .copyWith(color: inactiveTrackColor);
                 })
               : null,
-          uncheckedThumbDecoration: inactiveThumbColor != null
+          uncheckedKnobDecoration: inactiveThumbColor != null
               ? ButtonState.resolveWith((states) {
-                  return (toggleTheme.uncheckedThumbDecoration?.resolve(states)
+                  return (toggleTheme.uncheckedKnobDecoration?.resolve(states)
                           as BoxDecoration)
                       .copyWith(color: inactiveThumbColor);
                 })

@@ -260,7 +260,6 @@ class PlatformAppRouter extends StatelessWidget with PlatformMixin<Widget> {
       scrollBehavior:
           scrollBehavior?.windows ?? const FluentUI.FluentScrollBehavior(),
       restorationScopeId: restorationScopeId,
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 }
