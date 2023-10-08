@@ -19,7 +19,7 @@ class PlatformFilledButton extends StatelessWidget with PlatformMixin<Widget> {
   final FocusNode? focusNode;
   final bool autofocus;
   final Widget child;
-  final ButtonSize macOSButtonSize;
+  final ControlSize macOSButtonSize;
   final bool? isSecondary;
   final double macOSiOSPressedOpacity;
   final MouseCursor mouseCursor;
@@ -34,7 +34,7 @@ class PlatformFilledButton extends StatelessWidget with PlatformMixin<Widget> {
     this.focusNode,
     this.autofocus = false,
     this.clipBehavior = Clip.none,
-    this.macOSButtonSize = ButtonSize.large,
+    this.macOSButtonSize = ControlSize.large,
     this.mouseCursor = SystemMouseCursors.click,
     this.onHover,
     this.isSecondary,
@@ -197,8 +197,8 @@ class PlatformFilledButton extends StatelessWidget with PlatformMixin<Widget> {
                 pressedOpacity: macOSiOSPressedOpacity,
                 borderRadius: borderRadius ??
                     const BorderRadius.all(Radius.circular(4.0)),
-                buttonSize: macOSButtonSize,
-                isSecondary: isSecondary,
+                controlSize: macOSButtonSize,
+                secondary: isSecondary,
                 mouseCursor: mouseCursor,
                 color: themedStyle?.backgroundColor?.resolve(allStates),
                 disabledColor: themedStyle?.backgroundColor

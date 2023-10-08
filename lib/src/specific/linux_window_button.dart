@@ -26,11 +26,11 @@ class AdwWindowButton extends StatelessWidget {
             onPressed: onPressed,
             child: Center(
               child: SvgPicture.asset(
-                'packages/libadwaita/assets/icons/${buttonType.name}.svg',
-                width: 16,
-                height: 16,
-                color: context.textColor,
-              ),
+                  'packages/libadwaita/assets/icons/${buttonType.name}.svg',
+                  width: 16,
+                  height: 16,
+                  colorFilter:
+                      ColorFilter.mode(context.textColor, BlendMode.srcIn)),
             ),
           )
         : const SizedBox();

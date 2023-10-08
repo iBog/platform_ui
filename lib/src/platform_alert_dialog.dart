@@ -73,14 +73,18 @@ class PlatformAlertDialog extends StatelessWidget with PlatformMixin<Widget> {
       appIcon: macosAppIcon,
       title: title,
       message: content ?? Container(),
-      primaryButton: Row(
-        children: [
-          ...?primaryActions?.map((action) => Expanded(child: action))
-        ],
-      ),
-      secondaryButton: Row(children: [
-        ...?secondaryActions?.map((action) => Expanded(child: action))
-      ]),
+      primaryButton: PushButton(
+          controlSize: ControlSize.regular,
+          child: Row(
+            children: [
+              ...?primaryActions?.map((action) => Expanded(child: action))
+            ],
+          )),
+      secondaryButton: PushButton(
+          controlSize: ControlSize.regular,
+          child: Row(children: [
+            ...?secondaryActions?.map((action) => Expanded(child: action))
+          ])),
     );
   }
 

@@ -1,8 +1,8 @@
 import 'package:adwaita/adwaita.dart';
+import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 import 'package:platform_ui/platform_ui.dart';
 
 class PlatformAppRouter extends StatelessWidget with PlatformMixin<Widget> {
@@ -42,7 +42,6 @@ class PlatformAppRouter extends StatelessWidget with PlatformMixin<Widget> {
   final String? restorationScopeId;
   final PlatformProperty<ScrollBehavior>? scrollBehavior;
   final bool androidDebugShowMaterialGrid;
-  final bool useInheritedMediaQuery;
   final PlatformWindowButtonConfig? windowButtonConfig;
 
   const PlatformAppRouter({
@@ -83,7 +82,6 @@ class PlatformAppRouter extends StatelessWidget with PlatformMixin<Widget> {
     this.actions,
     this.restorationScopeId,
     this.scrollBehavior,
-    this.useInheritedMediaQuery = false,
     this.windowButtonConfig,
   }) : super(key: key);
 
@@ -130,7 +128,6 @@ class PlatformAppRouter extends StatelessWidget with PlatformMixin<Widget> {
       actions: actions?.android,
       scrollBehavior: scrollBehavior?.android,
       restorationScopeId: restorationScopeId,
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 
@@ -160,7 +157,6 @@ class PlatformAppRouter extends StatelessWidget with PlatformMixin<Widget> {
       actions: actions?.ios,
       scrollBehavior: scrollBehavior?.ios,
       restorationScopeId: restorationScopeId,
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 
@@ -196,7 +192,6 @@ class PlatformAppRouter extends StatelessWidget with PlatformMixin<Widget> {
       actions: actions?.android,
       scrollBehavior: scrollBehavior?.android,
       restorationScopeId: restorationScopeId,
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 

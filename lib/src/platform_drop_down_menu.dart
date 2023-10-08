@@ -1,8 +1,8 @@
+import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:macos_ui/macos_ui.dart';
 import 'package:platform_ui/platform_ui.dart';
-import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 import 'package:platform_ui/src/specific/linux_drop_down.dart';
 
 class PlatformDropDownMenuItem<T> {
@@ -186,7 +186,7 @@ class _PlatformDropDownMenuState<T> extends State<PlatformDropDownMenu<T>>
         showCupertinoModalPopup(
           context: context,
           builder: (context) {
-            var screenHeight = MediaQuery.of(context).size.height / 2;
+            var screenHeight = MediaQuery.sizeOf(context).height / 2;
             return SizedBox(
               height: height > screenHeight ? screenHeight : height,
               child: CupertinoPicker(

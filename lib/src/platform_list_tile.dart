@@ -1,7 +1,7 @@
+import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/material.dart';
 import 'package:platform_ui/platform_ui.dart';
-import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 
 class PlatformListTile extends StatelessWidget with PlatformMixin<Widget> {
   final Widget? leading;

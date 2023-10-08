@@ -1,7 +1,6 @@
 // ignore_for_file: library_prefixes
 
 import 'package:adwaita/adwaita.dart';
-import 'package:fluent_ui/fluent_ui.dart' hide ThemeData;
 import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +52,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
   final String? restorationScopeId;
   final ScrollBehavior? scrollBehavior;
   final bool debugShowMaterialGrid;
-  final bool useInheritedMediaQuery;
   final PlatformWindowButtonConfig? windowButtonConfig;
 
   const PlatformApp({
@@ -98,7 +96,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
     this.actions,
     this.restorationScopeId,
     this.scrollBehavior,
-    this.useInheritedMediaQuery = false,
     this.windowButtonConfig,
   }) : super(key: key);
 
@@ -139,7 +136,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
     bool androidDebugShowMaterialGrid = false,
-    bool useInheritedMediaQuery = false,
     PlatformWindowButtonConfig? windowButtonConfig,
   }) {
     return PlatformAppRouter(
@@ -178,7 +174,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
       restorationScopeId: restorationScopeId,
       scrollBehavior: scrollBehavior,
       androidDebugShowMaterialGrid: androidDebugShowMaterialGrid,
-      useInheritedMediaQuery: useInheritedMediaQuery,
       localizationsDelegates: [
         ...(localizationsDelegates ?? []),
         GlobalMaterialLocalizations.delegate,
@@ -252,7 +247,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
       restorationScopeId: restorationScopeId,
       scrollBehavior: scrollBehavior,
       debugShowMaterialGrid: debugShowMaterialGrid,
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 
@@ -292,7 +286,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
       actions: actions,
       restorationScopeId: restorationScopeId,
       scrollBehavior: scrollBehavior,
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 
@@ -338,7 +331,6 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
       restorationScopeId: restorationScopeId,
       scrollBehavior: scrollBehavior,
       debugShowMaterialGrid: debugShowMaterialGrid,
-      useInheritedMediaQuery: useInheritedMediaQuery,
     );
   }
 
@@ -385,7 +377,7 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
 
   @override
   Widget windows(context) {
-    return FluentApp(
+    return FluentUI.FluentApp(
       navigatorKey: navigatorKey,
       home: home,
       routes: routes!,
@@ -423,7 +415,7 @@ class PlatformApp extends StatelessWidget with PlatformMixin<Widget> {
       shortcuts: shortcuts,
       actions: actions,
       restorationScopeId: restorationScopeId,
-      scrollBehavior: scrollBehavior ?? const FluentScrollBehavior(),
+      scrollBehavior: scrollBehavior ?? const FluentUI.FluentScrollBehavior(),
     );
   }
 

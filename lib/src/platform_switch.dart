@@ -103,8 +103,12 @@ class PlatformSwitch extends StatelessWidget with PlatformMixin<Widget> {
         child: MacosSwitch(
           value: value,
           onChanged: onChanged,
-          activeColor: activeThumbColor,
-          trackColor: inactiveTrackColor,
+          activeColor: activeThumbColor != null
+              ? MacosColor(activeThumbColor!.value)
+              : null,
+          trackColor: inactiveTrackColor != null
+              ? MacosColor(inactiveTrackColor!.value)
+              : null,
         ),
       ),
     );
