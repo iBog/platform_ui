@@ -1,13 +1,30 @@
+import 'dart:io';
+
 import 'package:example/basic.dart';
 import 'package:example/dialog_tabs.dart';
 import 'package:example/input.dart';
+import 'package:example/more_widgets.dart';
 import 'package:fluent_ui/fluent_ui.dart' as FluentUI;
 import 'package:flutter/material.dart';
 import 'package:macos_ui/macos_ui.dart';
 import 'package:platform_ui/platform_ui.dart';
+import 'package:window_manager/window_manager.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
   platform = TargetPlatform.macOS;
+  if (Platform.isMacOS || Platform.isWindows || Platform.isLinux) {
+    WindowOptions windowOptions = const WindowOptions(
+      size: Size(1280, 1024), //default window size
+      center: true, //auto center window on launch
+      titleBarStyle: TitleBarStyle.hidden, //hide system Window Taskbar
+    );
+    windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.show();
+      await windowManager.focus();
+    });
+  }
   runApp(const MyApp());
 }
 
@@ -48,19 +65,27 @@ class MyAppState extends State<MyApp> {
         title: 'Platform UI Demo (AppBar)',
       ),
       windowButtonConfig: PlatformWindowButtonConfig(
-        onClose: () => debugPrint('close'),
-        onMinimize: () => debugPrint('minimize'),
+        onClose: () {
+          debugPrint('close');
+          windowManager.close();
+        },
+        onMinimize: () {
+          debugPrint('minimize');
+          windowManager.minimize();
+        },
         onMaximize: () {
           setState(() {
             isMaximized = true;
           });
           debugPrint('maximize');
+          windowManager.maximize();
         },
         onRestore: () {
           setState(() {
             isMaximized = false;
           });
           debugPrint('restore');
+          windowManager.restore();
         },
         isMaximized: () => isMaximized,
       ),
@@ -159,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
               PlatformTab(
                 label: "More Widgets",
                 icon: const Icon(Icons.format_align_justify),
-              ): const SizedBox.shrink(),
+              ): const MoreWidgets(),
             },
           ),
           PlatformSidebarItem(

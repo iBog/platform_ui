@@ -41,68 +41,71 @@ class _DialogTabsState extends State<DialogTabs> {
             ),
           ],
         ),
-        PlatformFilledButton(
-          child: const PlatformText("Show Dialog"),
-          onPressed: () {
-            final answer = showPlatformAlertDialog<bool>(
-              context,
-              builder: (context) {
-                return PlatformAlertDialog(
-                  title: const PlatformText("Isn't it great?"),
-                  content: const PlatformText(
-                    "This is a platform-specific dialog",
-                  ),
-                  primaryActions: [
-                    PlatformBuilder(
-                      fallback: PlatformBuilderFallback.android,
-                      android: (context, _) {
-                        return PlatformFilledButton(
-                          child: const PlatformText("Yes"),
-                          onPressed: () {
-                            Navigator.of(context).pop(true);
-                          },
-                        );
-                      },
-                      ios: (context, parent) {
-                        return CupertinoDialogAction(
-                          isDefaultAction: true,
-                          child: const PlatformText("Yes"),
-                          onPressed: () {
-                            Navigator.of(context).pop(true);
-                          },
-                        );
-                      },
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: PlatformFilledButton(
+            child: const PlatformText("Show Dialog"),
+            onPressed: () {
+              final answer = showPlatformAlertDialog<bool>(
+                context,
+                builder: (context) {
+                  return PlatformAlertDialog(
+                    title: const PlatformText("Isn't it great?"),
+                    content: const PlatformText(
+                      "This is a platform-specific dialog",
                     ),
-                  ],
-                  secondaryActions: [
-                    PlatformBuilder(
-                      fallback: PlatformBuilderFallback.android,
-                      android: (context, parent) {
-                        return PlatformFilledButton(
-                          isSecondary: true,
-                          child: const PlatformText("No"),
-                          onPressed: () {
-                            Navigator.of(context).pop(false);
-                          },
-                        );
-                      },
-                      ios: (context, parent) {
-                        return CupertinoDialogAction(
-                          isDestructiveAction: true,
-                          child: const PlatformText("No"),
-                          onPressed: () {
-                            Navigator.of(context).pop(false);
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                );
-              },
-            );
+                    primaryActions: [
+                      PlatformBuilder(
+                        fallback: PlatformBuilderFallback.android,
+                        android: (context, _) {
+                          return PlatformFilledButton(
+                            child: const PlatformText("Yes"),
+                            onPressed: () {
+                              Navigator.of(context).pop(true);
+                            },
+                          );
+                        },
+                        ios: (context, parent) {
+                          return CupertinoDialogAction(
+                            isDefaultAction: true,
+                            child: const PlatformText("Yes"),
+                            onPressed: () {
+                              Navigator.of(context).pop(true);
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                    secondaryActions: [
+                      PlatformBuilder(
+                        fallback: PlatformBuilderFallback.android,
+                        android: (context, parent) {
+                          return PlatformFilledButton(
+                            isSecondary: true,
+                            child: const PlatformText("No"),
+                            onPressed: () {
+                              Navigator.of(context).pop(false);
+                            },
+                          );
+                        },
+                        ios: (context, parent) {
+                          return CupertinoDialogAction(
+                            isDestructiveAction: true,
+                            child: const PlatformText("No"),
+                            onPressed: () {
+                              Navigator.of(context).pop(false);
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
 
-            print("Did you say this? $answer");
-          },
+              debugPrint("Did you say this? $answer");
+            },
+          ),
         ),
       ],
     );
