@@ -74,14 +74,14 @@ class PlatformAlertDialog extends StatelessWidget with PlatformMixin<Widget> {
       title: title,
       message: content ?? Container(),
       primaryButton: PushButton(
-          controlSize: ControlSize.regular,
+          controlSize: ControlSize.large,
           child: Row(
             children: [
               ...?primaryActions?.map((action) => Expanded(child: action))
             ],
           )),
       secondaryButton: PushButton(
-          controlSize: ControlSize.regular,
+          controlSize: ControlSize.large,
           child: Row(children: [
             ...?secondaryActions?.map((action) => Expanded(child: action))
           ])),

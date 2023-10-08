@@ -20,6 +20,7 @@ class PlatformSidebarItem {
 
   NavigationRailDestination android() {
     return NavigationRailDestination(
+      padding: EdgeInsets.zero,
       icon: icon,
       label: title,
     );
@@ -265,6 +266,7 @@ class _PlatformSidebarState extends State<PlatformSidebar>
   Widget macos(BuildContext context) {
     return MacosWindow(
       sidebar: Sidebar(
+        decoration: BoxDecoration(color: Colors.grey.withOpacity(0.1)),
         top: widget.header,
         topOffset: 1,
         bottom: widget.footer,
